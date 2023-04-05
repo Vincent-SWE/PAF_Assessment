@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ibf2022.paf.assessment.server.InsertUserException;
+import ibf2022.paf.assessment.server.models.Task;
 import ibf2022.paf.assessment.server.models.User;
 import ibf2022.paf.assessment.server.repositories.UserRepository;
 
@@ -17,7 +18,7 @@ public class UserService {
     private UserRepository userRepo;
 
     @Transactional(rollbackFor = InsertUserException.class)
-    public void insertUser(User user) throws InsertUserException {
+    public void createEntry(User user, Task task) throws InsertUserException {
 
         String userId = UUID.randomUUID().toString().substring(0, 8);
         

@@ -1,5 +1,7 @@
 package ibf2022.paf.assessment.server.repositories;
 
+// import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -22,7 +24,6 @@ public class TaskRepository {
 
     public void insertTask(Task task) {
         template.update(SQL_INSERT_TASK, task.getTaskId(), task.getDescription(), task.getPriority(), task.getDue_date());
-
     }
 
 
