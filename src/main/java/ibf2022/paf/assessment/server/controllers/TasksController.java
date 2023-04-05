@@ -1,6 +1,7 @@
 package ibf2022.paf.assessment.server.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,16 +37,30 @@ public class TasksController {
         String priority = form.getFirst("priority-0");
         String dueDate = form.getFirst("dueDate-0");
 
+        return "result";
+
+    }
+
+
+    @PostMapping(path="/upsert", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public String upsertTask (@RequestBody MultiValueMap<String, String> form, Model model) {
+
+        String username = form.getFirst("username");
+        String description = form.getFirst("description-0");
+        String priority = form.getFirst("priority-0");
+        String dueDate = form.getFirst("dueDate-0");
+
+        if () {
+            return new ResponseEntity<Integer>(iSuccessful, HttpStatusCode(200));
+            return "results";
+        }
+        else {
+            return new ResponseEntity<Integer>(iSuccessful, HttpStatusCode(500));
+            return "error";
+        }
         
 
     }
-
-
-
-
-
-    }
-
 
 
 
